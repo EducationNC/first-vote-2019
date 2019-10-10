@@ -21,7 +21,6 @@ if (get_post_type() == 'election' && !isset($_GET['edit']) && !isset($_GET['resu
           <span class="h6">Precinct ID:</span> <?php echo $precinct_id; ?>
         </small>
       </h1>
-      <p>Lesson Plans</p>
 
       <?php if (isset($_GET['contest'])) {
         $race = $_GET['contest'];
