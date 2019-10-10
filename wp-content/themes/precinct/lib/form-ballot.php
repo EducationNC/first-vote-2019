@@ -85,16 +85,16 @@ function make_races_cb($field_args, $field) {
     // $generated_ballot = get_post_meta( $election_id, '_cmb_generated_ballot', true);
 	$header_ctr = 0;
 	$appeals = 1;
-	
+
 	//print_r($ballot_data);
-	
+
     if (empty($generated_ballot)) {
       ob_start();
         foreach ($ballot_data as $ballot_section) {
           $z = 0;
           foreach ($ballot_section->races as $race) {
             // Find this race in the election data
-			
+
             $key = array_search($race->ballot_title, $included_races);
 			$subheader  = str_replace(['(',')'], ['<br /><span>','</span>'], $race->ballot_title);
 			//custom added CJ
@@ -111,24 +111,24 @@ function make_races_cb($field_args, $field) {
 			}
 				/*
 				if ($race->votes_allowed > 0 ) {
-					$race->votes_allowed  = $race->votes_allowed; 
+					$race->votes_allowed  = $race->votes_allowed;
 				}else{
 					$race->votes_allowed = 1;
 				}*/
-			
-			
+
+
             if ($key !== FALSE && $race->votes_allowed > 0 ) {
               // Print the section title if this is the first race in section
-			  
+
 			  /* Default Partisan Title CJ removed
               if ($z == 0) {
                 echo '<h2 class="section-head h6">';
                   echo $ballot_section->section;
                 echo '</h2>';
               }*/
-			  
+
 			  //CJ added new title
-			 
+
 				if (strpos($subheader, 'US House') !== false) {
 					echo '<h2 class="section-head h6">';
 					  echo 'FEDERAL OFFICES';
@@ -172,14 +172,14 @@ function make_races_cb($field_args, $field) {
               if (!empty($race->district)) {
                 $district = '<br />' . $race->district;
               }
-			  
+
 			  //adding unique ID # for the same title
 				if (strpos($sanitized_title, 'appeals-judge') !== false) {
 					//$sanitized_title = $sanitized_title. '-'.$appeals;
 					//$appeals++;
 				}
 
-				
+
               ?>
               <div class="cmb-row cmb2-id-<?php echo $sanitized_title; ?>">
                 <fieldset>
@@ -209,10 +209,10 @@ function make_races_cb($field_args, $field) {
                       <li>
                         <label for="<?php echo $sanitized_title . '-' . $j; ?>">
 						<?php if($type == 'checkbox'){ ?>
-							<input data-max-checked = "<?php echo $race->votes_allowed; ?>"  type="<?php echo $type; ?>" class="cmb2-option" name="_cmb_ballot_<?php echo $sanitized_title; ?><?php if ($array) {echo '[]';} ?>" id="<?php echo $sanitized_title . '-' . $j; ?>" value="<?php echo $c->ballotName; ?>" aria-label="<?php echo str_replace('<br />', ' ', $c->ballotName) . ' ' . $party; ?>"> 
+							<input data-max-checked = "<?php echo $race->votes_allowed; ?>"  type="<?php echo $type; ?>" class="cmb2-option" name="_cmb_ballot_<?php echo $sanitized_title; ?><?php if ($array) {echo '[]';} ?>" id="<?php echo $sanitized_title . '-' . $j; ?>" value="<?php echo $c->ballotName; ?>" aria-label="<?php echo str_replace('<br />', ' ', $c->ballotName) . ' ' . $party; ?>">
 						<?php }
-						  else {  ?> 
-						   <input type="<?php echo $type; ?>" class="cmb2-option" name="_cmb_ballot_<?php echo $sanitized_title; ?><?php if ($array) {echo '[]';} ?>" id="<?php echo $sanitized_title . '-' . $j; ?>" value="<?php echo $c->ballotName; ?>" aria-label="<?php echo str_replace('<br />', ' ', $c->ballotName) . ' ' . $party; ?>"> 
+						  else {  ?>
+						   <input type="<?php echo $type; ?>" class="cmb2-option" name="_cmb_ballot_<?php echo $sanitized_title; ?><?php if ($array) {echo '[]';} ?>" id="<?php echo $sanitized_title . '-' . $j; ?>" value="<?php echo $c->ballotName; ?>" aria-label="<?php echo str_replace('<br />', ' ', $c->ballotName) . ' ' . $party; ?>">
 						<?php  }  ?>
                           <span aria-hidden="true"><?php echo $c->ballotName; ?></span>
                           <br />
@@ -270,7 +270,7 @@ function make_races_cb($field_args, $field) {
                       <li>
                         <label for="<?php echo sanitize_title($contest['title']) . '-' . $m; ?>">
 					<?php if($type == 'checkbox'){ ?>
-							<input data-max-checked = "<?php echo $contest['votes_allowed']; ?>" type="<?php echo $type; ?>" class="cmb2-option" name="_cmb_ballot_<?php echo sanitize_title($contest['title']); ?><?php if ($array) {echo '[]';} ?>" id="<?php echo sanitize_title($contest['title']) . '-' . $m; ?>" value="<?php echo $candidate; ?>" aria-label="<?php echo $candidate; ?>">  
+							<input data-max-checked = "<?php echo $contest['votes_allowed']; ?>" type="<?php echo $type; ?>" class="cmb2-option" name="_cmb_ballot_<?php echo sanitize_title($contest['title']); ?><?php if ($array) {echo '[]';} ?>" id="<?php echo sanitize_title($contest['title']) . '-' . $m; ?>" value="<?php echo $candidate; ?>" aria-label="<?php echo $candidate; ?>">
 					<?php }
 						  else {  ?>
                           <input type="<?php echo $type; ?>" class="cmb2-option" name="_cmb_ballot_<?php echo sanitize_title($contest['title']); ?><?php if ($array) {echo '[]';} ?>" id="<?php echo sanitize_title($contest['title']) . '-' . $m; ?>" value="<?php echo $candidate; ?>" aria-label="<?php echo $candidate; ?>">
@@ -295,9 +295,9 @@ function make_races_cb($field_args, $field) {
             }
           }
         }
-		
-		
-        echo '<h2 class="section-head h6">Referenda</h2>';
+
+
+        //cho '<h2 class="section-head h6">Referenda</h2>';
         $k = 0;
         foreach ($referenda as $question) {
           if (!empty($question)) {
@@ -417,11 +417,11 @@ function make_races_cb($field_args, $field) {
           } else {
             $sanitized_title = sanitize_title($race->ballot_title);
           }
-		  
+
 		  if($race->ballot_title != null && $race->ballot_title != " "){
-			
+
           ?>
-		  
+
           <div class="cmb-row cmb2-id-<?php echo $sanitized_title; ?>">
             <fieldset>
               <div class="contest-head">
@@ -430,42 +430,42 @@ function make_races_cb($field_args, $field) {
 
               <?php
               if ( (int) $race->votes_allowed > 1 ) {
-				
+
                 //old  $results =  get_post_meta(get_the_id(), '_cmb_ballot_' . sanitize_title($race['ballot_title']), true);
-				
-				//new 
+
+				//new
                 $results =  get_post_meta(get_the_id(), '_cmb_ballot_' . sanitize_title($race->ballot_title), true);
-				$results = preg_replace('/(\'|&#0*39;)/', "\'", $results);			
+				$results = preg_replace('/(\'|&#0*39;)/', "\'", $results);
 				//CJ
-			
+
 				$results = unserialize(html_entity_decode($results));
-				
+
                 foreach ($results as $result) {
-					
+
                   ?>
                   <input type="text" name="_cmb_ballot_<?php echo $sanitized_title; ?>[]" value="<?php echo $result; ?>" disabled="disabled" />
                   <?php
                 }
               } else {
 				$results = get_post_meta(get_the_id(), '_cmb_ballot_' . $sanitized_title, true);
-				
+
 				//NEW
-				$results = preg_replace('/(\'|&#0*39;)/', "\'", $results);	
+				$results = preg_replace('/(\'|&#0*39;)/', "\'", $results);
 				//CJ
                 ?>
-				<!-- 
+				<!--
 				<input type="text" name="_cmb_ballot_<?php //echo $sanitized_title; ?>" value="<?php //echo stripslashes(esc_html(get_post_meta(get_the_id(), '_cmb_ballot_' . $sanitized_title, true))); ?>" disabled="disabled" />
                 -->
-				
+
 				<input type="text" name="_cmb_ballot_<?php echo $sanitized_title; ?>" value="<?php echo esc_html($results ); ?>" disabled="disabled" />
                 <?php
               }
               ?>
             </fieldset>
           </div>
-		  
+
           <?php
-		  
+
 			}
         }
       }
@@ -482,14 +482,14 @@ function make_races_cb($field_args, $field) {
 			  <?php
 			  if ( (int) $contest['votes_allowed'] > 1 ) {
 				$results = get_post_meta(get_the_id(), '_cmb_ballot_' . sanitize_title($contest['title']), true);
-				
-		
+
+
 				//NEW
-				$results = preg_replace('/(\'|&#0*39;)/', "\'", $results);	
+				$results = preg_replace('/(\'|&#0*39;)/', "\'", $results);
 				//CJ
 				$results = unserialize(html_entity_decode($results));
-			
-				
+
+
 				foreach ($results as $result) {
 				  ?>
 				  <input type="text" name="_cmb_ballot_<?php echo sanitize_title($contest['title']); ?>[]" value="<?php echo $result; ?>" disabled="disabled" />
@@ -497,17 +497,17 @@ function make_races_cb($field_args, $field) {
 				}
 			  } else {
 				$results = get_post_meta(get_the_id(), '_cmb_ballot_' . sanitize_title($contest['title']), true);
-			
+
 				//NEW
-				$results = preg_replace('/(\'|&#0*39;)/', "\'", $results);	
-				
+				$results = preg_replace('/(\'|&#0*39;)/', "\'", $results);
+
 				//CJ
-				
+
 				?>
-				<!-- 
+				<!--
 				<input type="text" name="_cmb_ballot_<?php //echo sanitize_title($contest['title']); ?>" value="<?php //echo esc_html(get_post_meta(get_the_id(), '_cmb_ballot_' . sanitize_title($contest['title']), true)); ?>" disabled="disabled" />
 				 -->
-				 
+
 				 <!-- NEW CJ-->
 				<input type="text" name="_cmb_ballot_<?php echo sanitize_title($contest['title']); ?>" value="<?php echo esc_html($results); ?>" disabled="disabled" />
 				 <!-- NEW CJ-->
@@ -519,7 +519,7 @@ function make_races_cb($field_args, $field) {
 		  <?php
 		}
     }
-	
+
 	//referenda
     $k = 0;
     foreach ($referenda as $question) {
@@ -538,7 +538,7 @@ function make_races_cb($field_args, $field) {
       <?php
       $k++;
     }
-	
+
     $k = 0;
     foreach ($issues as $question) {
       ?>
@@ -556,7 +556,7 @@ function make_races_cb($field_args, $field) {
       <?php
       $k++;
     }
-	
+
 
   }
 }
