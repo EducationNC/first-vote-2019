@@ -522,6 +522,7 @@ function make_races_cb($field_args, $field) {
 
 	//referenda
     $k = 0;
+    echo $k;
     foreach ($referenda as $question) {
       ?>
       <div class="cmb-row cmb2-id-<?php echo sanitize_title($question['title']); ?>-<?php echo $k; ?>">

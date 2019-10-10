@@ -77,9 +77,9 @@ if($issues){
 
 if($referenda){
 	array_unshift($referenda,   [
-		'title' => 'Constitutional Amendment #1',
-		'question' => 'Constitutional amendment protecting the right of the people to hunt, fish, and harvest wildlife.',
-		'options' => ['For', 'Against']
+		// 'title' => 'Constitutional Amendment #1',
+		// 'question' => 'Constitutional amendment protecting the right of the people to hunt, fish, and harvest wildlife.',
+		// 'options' => ['For', 'Against']
 	  ], [
 		// 'title' => 'Constitutional Amendment #2',
 		// 'question' => 'Constitutional amendment to strengthen protections for victims of crime; to establish certain absolute basic rights for victims; and to ensure the enforcement of these rights.',
