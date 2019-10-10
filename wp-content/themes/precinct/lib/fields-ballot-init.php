@@ -27,6 +27,8 @@ array_unshift($issues, [
   ]
 );
 */
+
+
 if($issues){
 	array_unshift($issues,   [
 		'title' => 'Issue #1',
@@ -71,6 +73,7 @@ if($issues){
 	);
 }
 
+/*
 
 if($referenda){
 	array_unshift($referenda,   [
@@ -133,3 +136,5 @@ if($referenda){
 		)
 	);
 }
+
+*/
