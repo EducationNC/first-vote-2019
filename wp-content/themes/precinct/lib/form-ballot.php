@@ -305,7 +305,7 @@ function make_races_cb($field_args, $field) {
             <div class="cmb-row cmb2-id-<?php echo sanitize_title($question['title']); ?>-<?php echo $k; ?>">
               <fieldset>
                 <div class="contest-head">
-                  <legend class="h2"><?php echo $question['title']; ?></legend>
+                  <legend class="h3"><?php echo $question['title']; ?></legend>
                 </div>
 
                 <p class="issue-question"><?php echo $question['question']; ?></p>
