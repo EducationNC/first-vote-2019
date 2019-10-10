@@ -297,7 +297,7 @@ function make_races_cb($field_args, $field) {
         }
 
 
-        //cho '<h2 class="section-head h6">Referenda</h2>';
+        echo '<h2 class="section-head h6">Referenda</h2>';
         $k = 0;
         foreach ($referenda as $question) {
           if (!empty($question)) {
