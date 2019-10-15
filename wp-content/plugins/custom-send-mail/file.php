@@ -819,7 +819,7 @@ $message .='<p class="text-center nc-red-text text-center lh-15" style="margin:0
 $message .='Have any questions?';
 $message .='</p>';
 $message .='<p class="text-center nc-red-text text-center" style="margin:0 0 0 10px;color:#0a0a0a;font-family:Helvetica, Arial, sans-serif;font-weight:400;padding:0;margin:0;line-height:1.3;font-size:18px;line-height:25px;margin-bottom:10px;color:#84919D;color:#861719;text-align:center;text-align:center !important;">';
-$message .='Email <a class="text-no-underline bold nc-blue-text" href="mailto:help@firstvote.com" style="color:#0a0a0a;font-family:Helvetica, Arial, sans-serif;font-weight:400;padding:0;margin:0;line-height:1.3;color:#8DC63F;text-decoration:underline;color:#151a47;text-decoration:none;font-weight:bold;">help@firstvote.com</a> for help';
+$message .='Email <a class="text-no-underline bold nc-blue-text" href="mailto:nrose@ednc.org" style="color:#0a0a0a;font-family:Helvetica, Arial, sans-serif;font-weight:400;padding:0;margin:0;line-height:1.3;color:#8DC63F;text-decoration:underline;color:#151a47;text-decoration:none;font-weight:bold;">nrose@ednc.org</a> for help';
 $message .='</p>';
 $message .='</center>';
 $message .='</th>';
